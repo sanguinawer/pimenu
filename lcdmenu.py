@@ -95,7 +95,6 @@ def Karma(comando):
       lcd.message('Karma Detenido.')
       LcdRed()
     sleep(0.25)
-    break;
 
 def DoQuit():
     lcd.clear()
@@ -651,7 +650,6 @@ class Display:
               self.curFolder.items[self.curSelectedItem].selected=len(tags)-1
             else:
               self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected-1;
-            print self.curFolder.items[self.curSelectedItem].selected  
         elif isinstance(self.curFolder.parent, Folder):
             # find the current in the parent
             itemno = 0
@@ -686,7 +684,6 @@ class Display:
               self.curFolder.items[self.curSelectedItem].selected=0
             else:
               self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected+1;
-            print self.curFolder.items[self.curSelectedItem].selected  
         elif isinstance(self.curFolder.items[self.curSelectedItem], CommandToRun):
             self.curFolder.items[self.curSelectedItem].Run()
 
