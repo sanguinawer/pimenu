@@ -579,7 +579,8 @@ class Display:
             if row < len(self.curFolder.items):
                 if row == self.curSelectedItem:
                     if isinstance(self.curFolder.items[row], Service):
-                        cmd = '-'+self.curFolder.items[row].text +"[" + self.curFolder.items[row].tag + "]"
+                        tags=child.getAttribute('tag')
+                        cmd = '-'+self.curFolder.items[row].text +"[" + tags[0] + "]"
                     else:
                         cmd = '-'+self.curFolder.items[row].text
 
