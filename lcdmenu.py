@@ -157,18 +157,18 @@ def Suplicant(comando):
     lcd.clear()
     LcdBlue()
     if comando=="start":
-      lcd.message('Iniciando\n Suplicant ...')
+      lcd.message('Iniciando\n Supplicant ...')
     if comando=="stop":
-      lcd.message('Deteniendo\n Suplicant ...')
+      lcd.message('Deteniendo\n Supplicant ...')
     
-    sendFrutyModuleCommand("suplicant",comando)
+    sendFrutyModuleCommand("supplicant",comando)
     lcd.clear()
   
     if comando=="start":
-      lcd.message('Suplicant\n Iniciado.')
+      lcd.message('Supplicant\n Iniciado.')
       LcdGreen()
     if comando=="stop":
-      lcd.message('Suplicant\n Detenido.')
+      lcd.message('Supplicant\n Detenido.')
       LcdRed()
     sleep(0.25)
     
