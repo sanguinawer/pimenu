@@ -650,7 +650,7 @@ class Display:
             else:
               self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected-1;
             print self.curFolder.items[self.curSelectedItem].selected  
-		elif isinstance(self.curFolder.parent, Folder):
+        elif isinstance(self.curFolder.parent, Folder):
             # find the current in the parent
             itemno = 0
             index = 0
