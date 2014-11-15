@@ -64,7 +64,7 @@ def IniciaWifi():
 	    sleep(0.25)
             break;
 
-			def DetenWifi():
+def DetenWifi():
     lcd.clear()
     lcd.message('Iniciamos Wifi?\nPress Sel for Y')
     while 1:
@@ -131,43 +131,48 @@ def DoReboot():
 
 def LcdOff():
     global currentLcd
-    currentLcd = lcd.OFF
+    currentLcd = lcd.LCDOFF
     lcd.backlight(currentLcd)
 
 def LcdOn():
     global currentLcd
-    currentLcd = lcd.ON
+    currentLcd = lcd.LCDON
     lcd.backlight(currentLcd)
 
 def LcdRed():
     global currentLcd
     currentLcd = lcd.RED
-    lcd.backlight(currentLcd)
+    lcd.ledcolor(currentLcd)
 
+def LcdNone():
+    global currentLcd
+    currentLcd = lcd.NONE
+    lcd.ledcolor(currentLcd)
+    
 def LcdGreen():
     global currentLcd
     currentLcd = lcd.GREEN
-    lcd.backlight(currentLcd)
+    lcd.ledcolor(currentLcd)
 
 def LcdBlue():
     global currentLcd
     currentLcd = lcd.BLUE
-    lcd.backlight(currentLcd)
+    lcd.ledcolor(currentLcd)
 
 def LcdYellow():
     global currentLcd
     currentLcd = lcd.YELLOW
-    lcd.backlight(currentLcd)
+    lcd.ledcolor(currentLcd)
 
 def LcdTeal():
     global currentLcd
     currentLcd = lcd.TEAL
-    lcd.backlight(currentLcd)
+    lcd.ledcolor(currentLcd)
 
 def LcdViolet():
     global currentLcd
     currentLcd = lcd.VIOLET
-    lcd.backlight(currentLcd)
+    lcd.ledcolor(currentLcd)
 
 def ShowDateTime():
     if DEBUG:

@@ -43,7 +43,8 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
     VIOLET                  = RED + BLUE
     WHITE                   = RED + GREEN + BLUE
     ON                      = RED + GREEN + BLUE
-
+    LCDOFF                  = 0
+	LCDON                   = 1
     # LCD Commands
     LCD_CLEARDISPLAY        = 0x01
     LCD_RETURNHOME          = 0x02
@@ -85,7 +86,7 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
     # ----------------------------------------------------------------------
     # Constructor
 
-    def __init__(self, busnum=-1, addr=0x20, debug=False, backlight=ON):
+    def __init__(self, busnum=-1, addr=0x20, debug=False, color=ON):
 
         self.i2c = Adafruit_I2C(addr, busnum, debug)
 
@@ -93,8 +94,8 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
         # so we don't need to constantly poll-and-change bit states.
         self.porta, self.portb, self.ddrb = 0, 0, 0b00000010
 
-        # Set initial backlight color.
-        c          = ~backlight
+        # Set initial led color.
+        c          = ~color
         #                                 BGR 
 	self.porta = (self.porta & 0b00111111) | ((c & 0b011) << 6)
         self.portb = (self.portb & 0b11111110) | ((c & 0b100) >> 2)
@@ -440,7 +441,7 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
 
 
 
-    def backlight(self, color):
+    def ledcolor(self, color):
         c          = ~color
         self.porta = (self.porta & 0b00011111) | ((c & 0b011) << 6)
         self.portb = (self.portb & 0b11111110) | ((c & 0b100) >> 2)
@@ -448,13 +449,17 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
           self.i2c.address, self.MCP23017_GPIOA, self.porta)
         self.i2c.bus.write_byte_data(
           self.i2c.address, self.MCP23017_GPIOB, self.portb)
-        if color==7:
-          self.ddra = 0b00011111
+
+    def backlight(self, state):
+        if state==1:
+          self.ddra = 0b00011111 # enciende el backlight 
           self.i2c.bus.write_byte_data(self.i2c.address, 0, self.ddra)
-        if color==0:
-          self.ddra=0b00111111
+        if state==0: 
+          self.ddra = 0b00111111 # apaga el backlight
           self.i2c.bus.write_byte_data(self.i2c.address, 0, self.ddra)
-    # Read state of single button
+
+
+		  # Read state of single button
     def buttonPressed(self, b):
         return (self.i2c.readU8(self.MCP23017_GPIOA) >> b) & 1
 
@@ -479,12 +484,12 @@ if __name__ == '__main__':
            ('Teal', lcd.TEAL), ('Blue'  , lcd.BLUE)  , ('Violet', lcd.VIOLET),
            ('Off' , lcd.OFF) , ('On'    , lcd.ON))
 
-    print "Cycle thru backlight colors"
+    print "Cycle thru ledcolor colors"
     for c in col:
        print c[0]
        lcd.clear()
        lcd.message(c[0])
-       lcd.backlight(c[1])
+       lcd.ledcolor(c[1])
        sleep(0.5)
 
     btn = ((lcd.SELECT, 'Select', lcd.ON),
@@ -504,6 +509,6 @@ if __name__ == '__main__':
                     print b[1]
                     lcd.clear()
                     lcd.message(b[1])
-                    lcd.backlight(b[2])
+                    lcd.ledcolor(b[2])
                     prev = b
                 break
