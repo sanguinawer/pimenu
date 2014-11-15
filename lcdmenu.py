@@ -35,7 +35,7 @@ lcd = Adafruit_CharLCDPlate(busnum = 1)
 #    quit()
 
 lcd.begin(DISPLAY_COLS, DISPLAY_ROWS)
-lcd.backlight(lcd.OFF)
+lcd.backlight(lcd.LCDOFF)
 
 # commands
 def IniciaWifi():
