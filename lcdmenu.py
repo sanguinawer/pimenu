@@ -139,6 +139,8 @@ def LcdOn():
     currentLcd = lcd.LCDON
     lcd.backlight(currentLcd)
 
+def LcdNone():
+    lcd.ledcolor(lcd.NONE)
 def LcdRed():
     lcd.ledcolor(lcd.RED)
 
