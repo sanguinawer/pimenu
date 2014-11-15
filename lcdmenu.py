@@ -494,7 +494,7 @@ class Service:
     def __init__(self, myName, myFunction, tag):
         self.text = myName
         self.function = myFunction
-        self.tag  = tags.split("|")
+        self.tag  = tag.split("|")
         self.selected=0
    
 def HandleSettings(node):
