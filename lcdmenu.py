@@ -87,7 +87,7 @@ def Karma(comando):
             lcd.message(comando+ ' ...')
             sendFrutyModuleCommand("karma",comando)
             lcd.clear()
-            lcd.message('Karma ' + comando '.')        
+            lcd.message('Karma ' + comando + '.')        
             sleep(0.25)
             LcdNone()
             break;
