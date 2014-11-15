@@ -444,18 +444,16 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
         c          = ~color
         self.porta = (self.porta & 0b00011111) | ((c & 0b011) << 6)
         self.portb = (self.portb & 0b11111110) | ((c & 0b100) >> 2)
-        self.porta=0;
-        #if color==7:
-        #self.porta = self.porta | (1<<6)
-	#if color==0:
-        #self.porta = self.porta & (~(1<<6))
-        # Has to be done as two writes because sequential operation is off.
         self.i2c.bus.write_byte_data(
           self.i2c.address, self.MCP23017_GPIOA, self.porta)
         self.i2c.bus.write_byte_data(
           self.i2c.address, self.MCP23017_GPIOB, self.portb)
-
-
+        if color==7:
+          self.ddra = 0b00011111
+          self.i2c.bus.write_byte_data(self.i2c.address, 0, self.ddra)
+        if color==0:
+          self.ddra=0b00111111
+          self.i2c.bus.write_byte_data(self.i2c.address, 0, self.ddra)
     # Read state of single button
     def buttonPressed(self, b):
         return (self.i2c.readU8(self.MCP23017_GPIOA) >> b) & 1
