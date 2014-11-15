@@ -62,7 +62,7 @@ def IniciaWifi():
             lcd.message('Wifi Iniciado.')        
             LcdGreen();
         sleep(0.25)
-            break;
+        break;
 
 def DetenWifi():
     lcd.clear()
@@ -88,7 +88,7 @@ def DetenWifi():
             lcd.message('Wifi detenido.')        
             LcdRed();
         sleep(0.25)
-            break;
+        break;
 
 
 def DoQuit():
