@@ -45,7 +45,7 @@
     <widget text="Detener Wifi" function="DetenWifi" />
     <widget text="Iniciar Karma" function="IniciaKarma" />
     <widget text="Detener Karma" function="DetenKarma" />
-    <service text="Karma" function="Karma" tag="START|STOP" />
+    <service text="Karma" function="Karma" tag="START|STOP|STATUS" />
     </folder>
   <folder text="Camera">
     <widget text="Detect" function="CameraDetect" />

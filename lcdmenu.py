@@ -703,7 +703,7 @@ class Display:
                 print('eval', self.curFolder.items[self.curSelectedItem].function)
             param=self.curFolder.items[self.curSelectedItem].tag[self.curFolder.items[self.curSelectedItem].selected]
             #eval(self.curFolder.items[self.curSelectedItem].function+'('+  param  +')')
-            print  self.curFolder.items[self.curSelectedItem].function+'('+  param  +')'
+            print  self.curFolder.items[self.curSelectedItem].function+'("'+  param  +'")'
 
 # now start things up
 currentLcd = lcd.NONE
