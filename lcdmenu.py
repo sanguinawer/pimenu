@@ -679,7 +679,7 @@ LcdBlue()
 sesion = requests.session()
 iniSesion()
 LcdNone()
-currentLcd = lcd.NONE
+currentLcd = lcd.BLUE
 uiItems = Folder('root','')
 
 dom = parse(configfile) # parse an XML file by name
@@ -729,5 +729,8 @@ while 1:
         lcdtmp = lcdstart + timedelta(seconds=5)
         if (datetime.now() > lcdtmp):
             lcd.backlight(lcd.LCDOFF)
+            savelcd=currentLcd
             LcdNone()
+            currentLcd=savelcd
+            
 
