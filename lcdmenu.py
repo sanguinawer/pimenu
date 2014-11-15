@@ -140,42 +140,25 @@ def LcdOn():
     lcd.backlight(currentLcd)
 
 def LcdRed():
-    global currentLcd
-    currentLcd = lcd.RED
-    lcd.ledcolor(currentLcd)
+    lcd.ledcolor(lcd.RED)
 
-def LcdNone():
-    global currentLcd
-    currentLcd = lcd.NONE
-    lcd.ledcolor(currentLcd)
 def LcdWhite():
-    global currentLcd
-    currentLcd = lcd.WHITE
-    lcd.ledcolor(currentLcd)    
+    lcd.ledcolor(lcd.WHITE)    
+
 def LcdGreen():
-    global currentLcd
-    currentLcd = lcd.GREEN
-    lcd.ledcolor(currentLcd)
+    lcd.ledcolor(lcd.GREEN)
 
 def LcdBlue():
-    global currentLcd
-    currentLcd = lcd.BLUE
-    lcd.ledcolor(currentLcd)
+    lcd.ledcolor(lcd.BLUE)
 
 def LcdYellow():
-    global currentLcd
-    currentLcd = lcd.YELLOW
-    lcd.ledcolor(currentLcd)
+    lcd.ledcolor(lcd.YELLOW)
 
 def LcdTeal():
-    global currentLcd
-    currentLcd = lcd.TEAL
-    lcd.ledcolor(currentLcd)
+    lcd.ledcolor(lcd.TEAL)
 
 def LcdViolet():
-    global currentLcd
-    currentLcd = lcd.VIOLET
-    lcd.ledcolor(currentLcd)
+    lcd.ledcolor(lcd.VIOLET)
 
 def ShowDateTime():
     if DEBUG:
