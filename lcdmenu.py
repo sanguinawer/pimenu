@@ -81,21 +81,97 @@ def Whatsapp(comando):
     lcd.clear()
     LcdBlue()
     if comando=="start":
-      lcd.message('Iniciando Whatsapp ...')
+      lcd.message('Iniciando\n Whatsapp ...')
     if comando=="stop":
-      lcd.message('Deteniendo Whatsapp ...')
+      lcd.message('Deteniendo\n Whatsapp ...')
     
     sendFrutyModuleCommand("whatsapp",comando)
     lcd.clear()
   
     if comando=="start":
-      lcd.message('Whatsapp Iniciado.')
+      lcd.message('Whatsapp\n Iniciado.')
       LcdGreen()
     if comando=="stop":
-      lcd.message('Whatsapp Detenido.')
+      lcd.message('Whatsapp\n Detenido.')
       LcdRed()
     sleep(0.25)
 
+def Urlsnarf(comando):
+    lcd.clear()
+    LcdBlue()
+    if comando=="start":
+      lcd.message('Iniciando\n Urlsnarf ...')
+    if comando=="stop":
+      lcd.message('Deteniendo\n Urlsnarf ...')
+    
+    sendFrutyModuleCommand("urlsnarf",comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('Urlsnarf\n Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('Urlsnarf\n Detenido.')
+      LcdRed()
+    sleep(0.25)
+
+def SSLtrip(comando):
+    lcd.clear()
+    LcdBlue()
+    if comando=="start":
+      lcd.message('Iniciando\n SSLtrip ...')
+    if comando=="stop":
+      lcd.message('Deteniendo\n SSLtrip ...')
+    
+    sendFrutyModuleCommand("ssltrip",comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('SSLtrip Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('SSLtrip Detenido.')
+      LcdRed()
+    sleep(0.25)
+
+def Ngrip(comando):
+    lcd.clear()
+    LcdBlue()
+    if comando=="start":
+      lcd.message('Iniciando Ngrip ...')
+    if comando=="stop":
+      lcd.message('Deteniendo Ngrip ...')
+    
+    sendFrutyModuleCommand("ngrip",comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('Ngrip Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('Ngrip Detenido.')
+      LcdRed()
+    sleep(0.25)
+
+def Suplicant(comando):
+    lcd.clear()
+    LcdBlue()
+    if comando=="start":
+      lcd.message('Iniciando\n Suplicant ...')
+    if comando=="stop":
+      lcd.message('Deteniendo\n Suplicant ...')
+    
+    sendFrutyModuleCommand("ngrip",comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('Suplicant\n Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('Suplicant\n Detenido.')
+      LcdRed()
+    sleep(0.25)
+    
 def DoQuit():
     lcd.clear()
     lcd.message('Are you sure?\nPress Sel for Y')

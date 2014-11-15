@@ -25,6 +25,10 @@
     <service text="Wifi" function="Wifi" tag="start|stop" />
     <service text="Karma" function="Karma" tag="start|stop" />
     <service text="Whatsapp" function="Whatsapp" tag="start|stop" />
+    <service text="Urlsnarf" function="Urlsnarf" tag="start|stop" />
+    <service text="SSLtrip" function="SSLtrip" tag="start|stop" />
+    <service text="Ngrip" function="Ngrip" tag="start|stop" />
+    <service text="Suplicant" function="Suplicant" tag="start|stop" />
   </folder>
   <widget text="Quit" function="DoQuit" />
   <widget text="Reboot" function="DoReboot" />
