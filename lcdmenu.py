@@ -48,16 +48,17 @@ def IniciaWifi():
             LcdBlue();
             lcd.clear()
             lcd.message('Iniciando wifi ...')
-            url_0 = "http://192.168.0.201:8000/index.php"
-            url = "http://192.168.0.201:8000/login.php"
-            data = {"user": "admin", "pass": "admin"}
+            sendFrutyCommand("start")
+			#Rurl_0 = "http://192.168.0.201:8000/index.php"
+            #url = "http://192.168.0.201:8000/login.php"
+            #data = {"user": "admin", "pass": "admin"}
 
-            s = requests.session()
-            s.get(url_0)
-            r = s.post(url, data)
+            #s = requests.session()
+            #s.get(url_0)
+            #r = s.post(url, data)
             
-            url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=start"
-            s.get(url_inicia_wireless)
+            #url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=start"
+            #s.get(url_inicia_wireless)
             lcd.clear()
             lcd.message('Wifi Iniciado.')        
             LcdGreen();
@@ -514,6 +515,20 @@ def ProcessNode(currentNode, currentItem):
                 thisCommand = CommandToRun(child.getAttribute('text'), child.firstChild.data)
                 currentItem.items.append(thisCommand)
 
+def iniSesion():
+    global sesion
+	url_0 = "http://192.168.0.201:8000/index.php"
+    url = "http://192.168.0.201:8000/login.php"
+    data = {"user": "admin", "pass": "admin"}
+    sesion.get(url_0)
+    r = s.post(url, data)
+	
+def sendFrutyCommand(comando):
+    global sesion
+    url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=" + comando
+    sesion.get(url_inicia_wireless)
+
+
 class Display:
     def __init__(self, folder):
         self.curFolder = folder
@@ -626,6 +641,9 @@ class Display:
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
 
 # now start things up
+sesion = requests.session()
+iniSesion();
+
 uiItems = Folder('root','')
 
 dom = parse(configfile) # parse an XML file by name
