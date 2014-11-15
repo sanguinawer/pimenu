@@ -61,7 +61,7 @@ def IniciaWifi():
             lcd.clear()
             lcd.message('Wifi Iniciado.')        
             LcdGreen();
-	    sleep(0.25)
+        sleep(0.25)
             break;
 
 def DetenWifi():
@@ -87,7 +87,7 @@ def DetenWifi():
             lcd.clear()
             lcd.message('Wifi detenido.')        
             LcdRed();
-	    sleep(0.25)
+        sleep(0.25)
             break;
 
 
@@ -148,7 +148,10 @@ def LcdNone():
     global currentLcd
     currentLcd = lcd.NONE
     lcd.ledcolor(currentLcd)
-    
+def LcdWhite():
+    global currentLcd
+    currentLcd = lcd.WHITE
+    lcd.ledcolor(currentLcd)    
 def LcdGreen():
     global currentLcd
     currentLcd = lcd.GREEN
@@ -657,7 +660,7 @@ if DEBUG:
 lcdstart = datetime.now()
 while 1:
     if (lcd.buttonPressed(lcd.LEFT)):
-       	display.update('l')
+        display.update('l')
         display.display()
         sleep(0.25)
 
