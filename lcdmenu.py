@@ -670,10 +670,10 @@ class Display:
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
         elif isinstance(self.curFolder.items[self.curSelectedItem], Service):
             tags=self.curFolder.items[self.curSelectedItem].tag
-            if self.curFolder.items[self.curSelectedItem].selected<tags.count:
-              self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected+1;
-            else:
+            if self.curFolder.items[self.curSelectedItem].selected>=tags.count:
               self.curFolder.items[self.curSelectedItem].selected=0
+            else:
+              self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected+1;
         elif isinstance(self.curFolder.items[self.curSelectedItem], CommandToRun):
             self.curFolder.items[self.curSelectedItem].Run()
 
