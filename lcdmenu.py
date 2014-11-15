@@ -494,9 +494,8 @@ class Service:
     def __init__(self, myName, myFunction, tag):
         self.text = myName
         self.function = myFunction
-        tags=tag.split("|")
-        print tag,tags
-        self.tag  = tags
+        self.tag  = tags.split("|")
+		self.selected=0
    
 def HandleSettings(node):
     global lcd
@@ -580,7 +579,7 @@ class Display:
             if row < len(self.curFolder.items):
                 if row == self.curSelectedItem:
                     if isinstance(self.curFolder.items[row], Service):
-                        tag=self.curFolder.items[row].tag[0]
+                        tag=self.curFolder.items[row].tag[self.curFolder.items[row].selected]
                         cmd = '-'+self.curFolder.items[row].text +"[" + tag + "]"
                     else:
                         cmd = '-'+self.curFolder.items[row].text
@@ -669,7 +668,13 @@ class Display:
             if DEBUG:
                 print('eval', self.curFolder.items[self.curSelectedItem].function)
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
-        elif isinstance(self.curFolder.items[self.curSelectedItem], CommandToRun):
+        elif isinstance(self.curFolder.items[self.curSelectedItem], Service):
+            tags=self.curFolder.items[self.curSelectedItem].tags
+			if self.curFolder.items[self.curSelectedItem].selected<tags.count:
+			  self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected+1;
+			else:
+			  self.curFolder.items[self.curSelectedItem].selected=0
+		elif isinstance(self.curFolder.items[self.curSelectedItem], CommandToRun):
             self.curFolder.items[self.curSelectedItem].Run()
 
     def select(self):
@@ -679,6 +684,12 @@ class Display:
             if DEBUG:
                 print('eval', self.curFolder.items[self.curSelectedItem].function)
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
+        if isinstance(self.curFolder.items[self.curSelectedItem], Service):
+            if DEBUG:
+                print('eval', self.curFolder.items[self.curSelectedItem].function)
+            param=self.curFolder.items[self.curSelectedItem].tag[self.curFolder.items[self.curSelectedItem].selected]
+			#eval(self.curFolder.items[self.curSelectedItem].function+'('+  param  +')')
+			print  self.curFolder.items[self.curSelectedItem].function+'('+  param  +')'
 
 # now start things up
 currentLcd = lcd.NONE
