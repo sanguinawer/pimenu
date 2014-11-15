@@ -8,11 +8,6 @@
       <widget text="Use 10.1.1.2" function="Use10Network" />
       <widget text="Use DHCP" function="UseDHCP" />
     </folder>
-    <folder text="Location">
-      <widget text="Show Lat/Lon" function="ShowLatLon" />
-      <widget text="Set Lat/Lon" function="SetLatLon" />
-      <widget text="Set Location" function="SetLocation" />
-    </folder>
     <folder text="LCD Color">
       <widget text="Red" function="LcdRed" />
       <widget text="Green" function="LcdGreen" />
@@ -26,30 +21,10 @@
     <run text="Run ls">ls</run>
     <widget text="Enter a word" function="EnterWord" />
   </folder>
-  <folder text="Sensors">
-    <folder text="Compass/Gyro">
-      <widget text="View Accelerate" function="CompassGyroViewAcc" />
-      <widget text="View Magnetics" function="CompassGyroViewMag" />
-      <widget text="View Heading" function="CompassGyroViewHeading" />
-      <widget text="View Temp" function="CompassGyroViewTemp" />
-      <widget text="Calibrate" function="CompassGyroCalibrate" />
-      <widget text="Calibrate Clear" function="CompassGyroCalibrateClear" />
-    </folder>
-    <folder text="Temp/Baro">
-      <widget text="View Info" function="TempBaroView" />
-      <widget text="Calibrate" function="TempBaroCalibrate" />
-    </folder>
-  </folder>
   <folder text="Fruty">
-    <widget text="Iniciar Wifi" function="IniciaWifi" />
-    <widget text="Detener Wifi" function="DetenWifi" />
     <service text="Wifi" function="Wifi" tag="start|stop" />
     <service text="Karma" function="Karma" tag="start|stop" />
-    </folder>
-  <folder text="Camera">
-    <widget text="Detect" function="CameraDetect" />
-    <widget text="Take Picture" function="CameraTakePicture" />
-    <widget text="Time Lapse" function="CameraTimeLapse" />
+    <service text="Whatsapp" function="Whatsapp" tag="start|stop" />
   </folder>
   <widget text="Quit" function="DoQuit" />
   <widget text="Reboot" function="DoReboot" />

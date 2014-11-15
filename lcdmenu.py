@@ -38,22 +38,6 @@ lcd.begin(DISPLAY_COLS, DISPLAY_ROWS)
 lcd.backlight(lcd.LCDOFF)
 
 # commands
-def IniciaWifi():
-    lcd.clear()
-    lcd.message('Iniciar Wifi?\nPress Sel for Y')
-    while 1:
-        if lcd.buttonPressed(lcd.LEFT):
-            break
-        if lcd.buttonPressed(lcd.SELECT):
-            LcdBlue();
-            lcd.clear()
-            lcd.message('Iniciando wifi ...')
-            sendFrutyCommand("start")
-            lcd.clear()
-            lcd.message('Wifi Iniciado.')        
-            LcdGreen();
-            sleep(0.25)
-            break;
 def Wifi(comando):
     lcd.clear()
     LcdBlue()
@@ -73,27 +57,6 @@ def Wifi(comando):
       LcdRed()
     sleep(0.25)
 
-def DetenWifi():
-    lcd.clear()
-    lcd.message('Detener Wifi?\nPress Sel for Y')
-    while 1:
-        if lcd.buttonPressed(lcd.LEFT):
-            break
-        if lcd.buttonPressed(lcd.SELECT):
-            LcdBlue();
-            lcd.clear()
-            lcd.message('Deteniendo ...')
-            sendFrutyCommand("stop")
-            lcd.clear()
-            lcd.message('Wifi detenido.')        
-            LcdRed();
-            sleep(0.25)
-            break;
-def IniciaKarma():
-    Karma("start")
-def DetenKarma():
-    Karma("stop")
-
 def Karma(comando):
     lcd.clear()
     LcdBlue()
@@ -111,6 +74,26 @@ def Karma(comando):
       LcdGreen()
     if comando=="stop":
       lcd.message('Karma Detenido.')
+      LcdRed()
+    sleep(0.25)
+http://192.168.0.201:8000/modules/whatsapp/includes/module_action.php?service=whatsapp&action=start&page=status
+
+def Whatsapp(comando):
+    lcd.clear()
+    LcdBlue()
+    if comando=="start":
+      lcd.message('Iniciando Whatsapp ...')
+    if comando=="stop":
+      lcd.message('Deteniendo Whatsapp ...')
+    
+    sendFrutyModuleCommand("whatsapp",comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('Whatsapp Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('Whatsapp Detenido.')
       LcdRed()
     sleep(0.25)
 
@@ -348,83 +331,6 @@ def UseDHCP():
             break
         sleep(0.25)
 
-def ShowLatLon():
-    if DEBUG:
-        print('in ShowLatLon')
-
-def SetLatLon():
-    if DEBUG:
-        print('in SetLatLon')
-    
-def SetLocation():
-    if DEBUG:
-        print('in SetLocation')
-    global lcd
-    list = []
-    # coordinates usable by ephem library, lat, lon, elevation (m)
-    list.append(['New York', '40.7143528', '-74.0059731', 9.775694])
-    list.append(['Paris', '48.8566667', '2.3509871', 35.917042])
-    selector = ListSelector(list, lcd)
-    item = selector.Pick()
-    # do something useful
-    if (item >= 0):
-        chosen = list[item]
-
-def CompassGyroViewAcc():
-    if DEBUG:
-        print('in CompassGyroViewAcc')
-
-def CompassGyroViewMag():
-    if DEBUG:
-        print('in CompassGyroViewMag')
-
-def CompassGyroViewHeading():
-    if DEBUG:
-        print('in CompassGyroViewHeading')
-
-def CompassGyroViewTemp():
-    if DEBUG:
-        print('in CompassGyroViewTemp')
-
-def CompassGyroCalibrate():
-    if DEBUG:
-        print('in CompassGyroCalibrate')
-    
-def CompassGyroCalibrateClear():
-    if DEBUG:
-        print('in CompassGyroCalibrateClear')
-    
-def TempBaroView():
-    if DEBUG:
-        print('in TempBaroView')
-
-def TempBaroCalibrate():
-    if DEBUG:
-        print('in TempBaroCalibrate')
-    
-def AstroViewAll():
-    if DEBUG:
-        print('in AstroViewAll')
-
-def AstroViewAltAz():
-    if DEBUG:
-        print('in AstroViewAltAz')
-    
-def AstroViewRADecl():
-    if DEBUG:
-        print('in AstroViewRADecl')
-
-def CameraDetect():
-    if DEBUG:
-        print('in CameraDetect')
-    
-def CameraTakePicture():
-    if DEBUG:
-        print('in CameraTakePicture')
-
-def CameraTimeLapse():
-    if DEBUG:
-        print('in CameraTimeLapse')
 
 # Get a word from the UI, a character at a time.
 # Click select to complete input, or back out to the left to quit.
