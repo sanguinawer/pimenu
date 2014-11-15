@@ -54,6 +54,24 @@ def IniciaWifi():
             LcdGreen();
             sleep(0.25)
             break;
+def Wifi(comando):
+    lcd.clear()
+    LcdBlue()
+    if comando=="start":
+      lcd.message('Iniciando WIFI ...')
+    if comando=="stop":
+      lcd.message('Deteniendo WIFI ...')
+    
+    sendFrutyCommand(comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('WIFI Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('WIFI Detenido.')
+      LcdRed()
+    sleep(0.25)
 
 def DetenWifi():
     lcd.clear()
