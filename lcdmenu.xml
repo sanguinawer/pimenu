@@ -20,8 +20,8 @@
       <widget text="Yellow" function="LcdYellow" />
       <widget text="Teal" function="LcdTeal" />
       <widget text="Violet" function="LcdViolet" />
-      <widget text="White" function="LcdOn" />
-      <widget text="Off" function="LcdOff" />
+      <widget text="White" function="LcdWhite" />
+      <widget text="none" function="LcdNone" />
     </folder>
     <run text="Run ls">ls</run>
     <widget text="Enter a word" function="EnterWord" />
