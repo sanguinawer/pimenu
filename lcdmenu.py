@@ -46,6 +46,7 @@ def IniciaWifi():
             break
         if lcd.buttonPressed(lcd.SELECT):
             LcdBlue();
+            lcd.clear()
             lcd.message('Iniciando wifi ...')
             url_0 = "http://192.168.0.201:8000/index.php"
             url = "http://192.168.0.201:8000/login.php"
@@ -58,9 +59,34 @@ def IniciaWifi():
             url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=start"
             s.get(url_inicia_wireless)
             lcd.clear()
-            lcd.backlight(lcd.OFF)
             lcd.message('Wifi Iniciado.')        
             LcdGreen();
+	    sleep(0.25)
+            break;
+
+			def DetenWifi():
+    lcd.clear()
+    lcd.message('Iniciamos Wifi?\nPress Sel for Y')
+    while 1:
+        if lcd.buttonPressed(lcd.LEFT):
+            break
+        if lcd.buttonPressed(lcd.SELECT):
+            LcdBlue();
+            lcd.clear()
+            lcd.message('Deteniendo ...')
+            url_0 = "http://192.168.0.201:8000/index.php"
+            url = "http://192.168.0.201:8000/login.php"
+            data = {"user": "admin", "pass": "admin"}
+
+            s = requests.session()
+            s.get(url_0)
+            r = s.post(url, data)
+            
+            url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=stop"
+            s.get(url_inicia_wireless)
+            lcd.clear()
+            lcd.message('Wifi detenido.')        
+            LcdRed();
 	    sleep(0.25)
             break;
 
