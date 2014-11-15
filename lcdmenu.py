@@ -674,7 +674,7 @@ class Display:
             print self.curFolder.items[self.curSelectedItem].selected
             print tags.count
             if self.curFolder.items[self.curSelectedItem].selected>=tags.count:
-              self.curFolder.items[self.curSelectedItem].selected=0
+              self.curFolder.items[self.curSelectedItem].selected=1
             else:
               self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected+1;
             print self.curFolder.items[self.curSelectedItem].selected  
