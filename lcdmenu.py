@@ -590,7 +590,7 @@ class Display:
     def update(self, command):
         global currentLcd
         global lcdstart
-        lcd.backlight(currentLcd)
+        LcdOn();#lcd.backlight(currentLcd)
         lcdstart = datetime.now()
         if DEBUG:
             print('do',command)
@@ -662,8 +662,8 @@ class Display:
 
 # now start things up
 sesion = requests.session()
-iniSesion();
-
+iniSesion()
+LcdGreen()
 uiItems = Folder('root','')
 
 dom = parse(configfile) # parse an XML file by name
