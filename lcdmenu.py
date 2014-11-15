@@ -71,7 +71,26 @@ def DetenWifi():
             LcdRed();
             sleep(0.25)
             break;
+def IniciaKarma()
+    Karma("start")
+def DetenKarma()
+    Krama("stop")
 
+def Karma(comando):
+    lcd.clear()
+    lcd.message('Karma' + comando +'?\nPress Sel for Y')
+    while 1:
+        if lcd.buttonPressed(lcd.LEFT):
+            break
+        if lcd.buttonPressed(lcd.SELECT):
+            LcdBlue()
+            lcd.message(comando+ ' ...')
+            sendFrutyModuleCommand("karma",comando)
+            lcd.clear()
+            lcd.message('Karma ' + comando '.')        
+            sleep(0.25)
+            LcdNone()
+            break;
 
 def DoQuit():
     lcd.clear()
@@ -503,7 +522,13 @@ def iniSesion():
     data = {"user": "admin", "pass": "admin"}
     sesion.get(url_0)
     r = sesion.post(url, data)
-	
+
+
+def sendFrutyModuleCommand(modulo,comando):
+    global sesion
+    url_inicia_wireless="http://192.168.0.201:8000/modules/"+modulo+""/includes/module_action.php?service="+modulo+"&action="+comando+"&page=status"    
+    sesion.get(url_inicia_wireless)
+
 def sendFrutyCommand(comando):
     global sesion
     url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=" + comando
