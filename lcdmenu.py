@@ -494,7 +494,8 @@ class Service:
     def __init__(self, myName, myFunction, tag):
         self.text = myName
         self.function = myFunction
-        self.tag  = tag
+        tags=tag.split("|")
+		self.tag  = tags
    
 def HandleSettings(node):
     global lcd
@@ -532,7 +533,8 @@ def ProcessNode(currentNode, currentItem):
                 thisWidget = Widget(child.getAttribute('text'), child.getAttribute('function'))
                 currentItem.items.append(thisWidget)
             elif child.tagName == 'service':
-                thisService = Service(child.getAttribute('text'), child.getAttribute('function'),child.getAttribute('tag'))
+                tags=child.getAttribute('tag')
+				thisService = Service(child.getAttribute('text'), child.getAttribute('function'),tag[0])
                 currentItem.items.append(thisService)
             elif child.tagName == 'run':
                 thisCommand = CommandToRun(child.getAttribute('text'), child.firstChild.data)
