@@ -95,7 +95,8 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
 
         # Set initial backlight color.
         c          = ~backlight
-        self.porta = (self.porta & 0b00111111) | ((c & 0b011) << 6)
+        #                                 BGR 
+		self.porta = (self.porta & 0b00111111) | ((c & 0b011) << 6)
         self.portb = (self.portb & 0b11111110) | ((c & 0b100) >> 2)
 
         # Set MCP23017 IOCON register to Bank 0 with sequential operation.
@@ -443,7 +444,12 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
         c          = ~color
         self.porta = (self.porta & 0b00011111) | ((c & 0b011) << 6)
         self.portb = (self.portb & 0b11111110) | ((c & 0b100) >> 2)
-        # Has to be done as two writes because sequential operation is off.
+        if color==OFF:
+           self.porta = self.porta | (1<<6)
+		if color=ON:
+           self.porta = self.porta & (~(1<<6))
+		
+		# Has to be done as two writes because sequential operation is off.
         self.i2c.bus.write_byte_data(
           self.i2c.address, self.MCP23017_GPIOA, self.porta)
         self.i2c.bus.write_byte_data(
