@@ -101,6 +101,7 @@ def DoQuit():
         if lcd.buttonPressed(lcd.SELECT):
             lcd.clear()
             lcd.backlight(lcd.LCDOFF)
+            lcd.ledcolor(lcd.NONE)
             quit()
         sleep(0.25)
 
@@ -113,6 +114,7 @@ def DoShutdown():
         if lcd.buttonPressed(lcd.SELECT):
             lcd.clear()
             lcd.backlight(lcd.LCDOFF)
+            lcd.ledcolor(lcd.NONE)          
             commands.getoutput("sudo shutdown -h now")
             quit()
         sleep(0.25)
@@ -126,6 +128,7 @@ def DoReboot():
         if lcd.buttonPressed(lcd.SELECT):
             lcd.clear()
             lcd.backlight(lcd.LCDOFF)
+            lcd.ledcolor(lcd.NONE)          
             commands.getoutput("sudo reboot")
             quit()
         sleep(0.25)
