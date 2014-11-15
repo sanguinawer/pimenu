@@ -46,7 +46,7 @@
     <widget text="Iniciar Karma" function="IniciaKarma" />
     <widget text="Detener Karma" function="DetenKarma" />
     <service text="Karma" function="Karma" tag="START|STOP" />
-	</folder>
+    </folder>
   <folder text="Camera">
     <widget text="Detect" function="CameraDetect" />
     <widget text="Take Picture" function="CameraTakePicture" />
