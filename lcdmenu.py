@@ -40,7 +40,7 @@ lcd.backlight(lcd.LCDOFF)
 # commands
 def IniciaWifi():
     lcd.clear()
-    lcd.message('Iniciamos Wifi?\nPress Sel for Y')
+    lcd.message('Iniciar Wifi?\nPress Sel for Y')
     while 1:
         if lcd.buttonPressed(lcd.LEFT):
             break
@@ -49,16 +49,6 @@ def IniciaWifi():
             lcd.clear()
             lcd.message('Iniciando wifi ...')
             sendFrutyCommand("start")
-			#Rurl_0 = "http://192.168.0.201:8000/index.php"
-            #url = "http://192.168.0.201:8000/login.php"
-            #data = {"user": "admin", "pass": "admin"}
-
-            #s = requests.session()
-            #s.get(url_0)
-            #r = s.post(url, data)
-            
-            #url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=start"
-            #s.get(url_inicia_wireless)
             lcd.clear()
             lcd.message('Wifi Iniciado.')        
             LcdGreen();
@@ -67,7 +57,7 @@ def IniciaWifi():
 
 def DetenWifi():
     lcd.clear()
-    lcd.message('Iniciamos Wifi?\nPress Sel for Y')
+    lcd.message('Detener Wifi?\nPress Sel for Y')
     while 1:
         if lcd.buttonPressed(lcd.LEFT):
             break
@@ -75,16 +65,7 @@ def DetenWifi():
             LcdBlue();
             lcd.clear()
             lcd.message('Deteniendo ...')
-            url_0 = "http://192.168.0.201:8000/index.php"
-            url = "http://192.168.0.201:8000/login.php"
-            data = {"user": "admin", "pass": "admin"}
-
-            s = requests.session()
-            s.get(url_0)
-            r = s.post(url, data)
-            
-            url_inicia_wireless="http://192.168.0.201:8000/scripts/status_wireless.php?service=wireless&action=stop"
-            s.get(url_inicia_wireless)
+            sendFrutyCommand("stop")
             lcd.clear()
             lcd.message('Wifi detenido.')        
             LcdRed();
@@ -517,11 +498,11 @@ def ProcessNode(currentNode, currentItem):
 
 def iniSesion():
     global sesion
-	url_0 = "http://192.168.0.201:8000/index.php"
+    url_0 = "http://192.168.0.201:8000/index.php"
     url = "http://192.168.0.201:8000/login.php"
     data = {"user": "admin", "pass": "admin"}
     sesion.get(url_0)
-    r = s.post(url, data)
+    r = sesion.post(url, data)
 	
 def sendFrutyCommand(comando):
     global sesion
