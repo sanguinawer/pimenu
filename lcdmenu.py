@@ -495,7 +495,7 @@ class Service:
         self.text = myName
         self.function = myFunction
         tags=tag.split("|")
-        print tags
+        print tag,tags
         self.tag  = tags
    
 def HandleSettings(node):
