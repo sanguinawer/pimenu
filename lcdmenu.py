@@ -645,7 +645,7 @@ class Display:
             print tags
             print len(tags)
             print self.curFolder.items[self.curSelectedItem].selected  
-            if self.curFolder.items[self.curSelectedItem].selected<len(tags)-1:
+            if self.curFolder.items[self.curSelectedItem].selected<=0:
               self.curFolder.items[self.curSelectedItem].selected=len(tags)-1
             else:
               self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected-1;
