@@ -687,5 +687,5 @@ while 1:
     if AUTO_OFF_LCD:
         lcdtmp = lcdstart + timedelta(seconds=5)
         if (datetime.now() > lcdtmp):
-            lcd.backlight(lcd.OFF)
+            lcd.backlight(lcd.LCDOFF)
 
