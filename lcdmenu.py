@@ -115,41 +115,41 @@ def Urlsnarf(comando):
       LcdRed()
     sleep(0.25)
 
-def SSLtrip(comando):
+def SSLstrip(comando):
     lcd.clear()
     LcdBlue()
     if comando=="start":
-      lcd.message('Iniciando\n SSLtrip ...')
+      lcd.message('Iniciando\n SSLstrip ...')
     if comando=="stop":
-      lcd.message('Deteniendo\n SSLtrip ...')
+      lcd.message('Deteniendo\n SSLstrip ...')
     
-    sendFrutyModuleCommand("ssltrip",comando)
+    sendFrutyModuleCommand("sslstrip",comando)
     lcd.clear()
   
     if comando=="start":
-      lcd.message('SSLtrip Iniciado.')
+      lcd.message('SSLstrip Iniciado.')
       LcdGreen()
     if comando=="stop":
-      lcd.message('SSLtrip Detenido.')
+      lcd.message('SSLstrip Detenido.')
       LcdRed()
     sleep(0.25)
 
-def Ngrip(comando):
+def Ngrep(comando):
     lcd.clear()
     LcdBlue()
     if comando=="start":
-      lcd.message('Iniciando Ngrip ...')
+      lcd.message('Iniciando Ngrep ...')
     if comando=="stop":
-      lcd.message('Deteniendo Ngrip ...')
+      lcd.message('Deteniendo Ngrep ...')
     
-    sendFrutyModuleCommand("ngrip",comando)
+    sendFrutyModuleCommand("ngrep",comando)
     lcd.clear()
   
     if comando=="start":
-      lcd.message('Ngrip Iniciado.')
+      lcd.message('Ngrep Iniciado.')
       LcdGreen()
     if comando=="stop":
-      lcd.message('Ngrip Detenido.')
+      lcd.message('Ngrep Detenido.')
       LcdRed()
     sleep(0.25)
 
