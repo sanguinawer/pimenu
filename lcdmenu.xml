@@ -43,7 +43,8 @@
   <folder text="Fruty">
     <widget text="Iniciar Wifi" function="IniciaWifi" />
     <widget text="Detener Wifi" function="DetenWifi" />
-    <widget text="RA/Decl" function="AstroViewRADecl" />
+    <widget text="Iniciar Karma" function="IniciaKarma" />
+    <widget text="Detener Karma" function="DetenKarma" />
   </folder>
   <folder text="Camera">
     <widget text="Detect" function="CameraDetect" />
