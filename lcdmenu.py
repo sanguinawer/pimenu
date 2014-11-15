@@ -161,7 +161,7 @@ def Suplicant(comando):
     if comando=="stop":
       lcd.message('Deteniendo\n Suplicant ...')
     
-    sendFrutyModuleCommand("ngrip",comando)
+    sendFrutyModuleCommand("suplicant",comando)
     lcd.clear()
   
     if comando=="start":
