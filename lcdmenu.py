@@ -679,6 +679,7 @@ LcdBlue()
 sesion = requests.session()
 iniSesion()
 LcdNone()
+currentLcd = lcd.NONE
 uiItems = Folder('root','')
 
 dom = parse(configfile) # parse an XML file by name
