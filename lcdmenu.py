@@ -674,9 +674,10 @@ class Display:
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
 
 # now start things up
+LcdBlue()
 sesion = requests.session()
 iniSesion()
-LcdGreen()
+LcdNone()
 uiItems = Folder('root','')
 
 dom = parse(configfile) # parse an XML file by name
@@ -684,11 +685,13 @@ dom = parse(configfile) # parse an XML file by name
 top = dom.documentElement
 
 #currentLcd = lcd.LCDOFF
-LcdOn()
+
 ProcessNode(top, uiItems)
 
 display = Display(uiItems)
 display.display()
+
+LcdOn()
 
 if DEBUG:
     print('start while')
