@@ -534,7 +534,7 @@ def ProcessNode(currentNode, currentItem):
                 currentItem.items.append(thisWidget)
             elif child.tagName == 'service':
                 tags=child.getAttribute('tag')
-				thisService = Service(child.getAttribute('text'), child.getAttribute('function'),tag[0])
+                thisService = Service(child.getAttribute('text'), child.getAttribute('function'),tags[0])
                 currentItem.items.append(thisService)
             elif child.tagName == 'run':
                 thisCommand = CommandToRun(child.getAttribute('text'), child.firstChild.data)
