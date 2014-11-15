@@ -526,7 +526,7 @@ def iniSesion():
 
 def sendFrutyModuleCommand(modulo,comando):
     global sesion
-    url_inicia_wireless="http://192.168.0.201:8000/modules/"+modulo+""/includes/module_action.php?service="+modulo+"&action="+comando+"&page=status"    
+    url_inicia_wireless="http://192.168.0.201:8000/modules/" + modulo + "/includes/module_action.php?service=" + modulo + "&action=" + comando + "&page=status"    
     sesion.get(url_inicia_wireless)
 
 def sendFrutyCommand(comando):
