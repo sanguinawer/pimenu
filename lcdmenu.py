@@ -74,7 +74,7 @@ def DetenWifi():
 def IniciaKarma():
     Karma("start")
 def DetenKarma():
-    Krama("stop")
+    Karma("stop")
 
 def Karma(comando):
     lcd.clear()
