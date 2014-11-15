@@ -603,7 +603,7 @@ class Display:
         global currentLcd
         global lcdstart
         LcdOn();#lcd.backlight(currentLcd)
-        #lcd.ledcolor(currentLcd)
+        lcd.ledcolor(currentLcd)
         lcdstart = datetime.now()
         if DEBUG:
             print('do',command)
@@ -674,6 +674,7 @@ class Display:
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
 
 # now start things up
+currentLcd = lcd.NONE
 LcdBlue()
 sesion = requests.session()
 iniSesion()
@@ -684,7 +685,7 @@ dom = parse(configfile) # parse an XML file by name
 
 top = dom.documentElement
 
-#currentLcd = lcd.LCDOFF
+
 
 ProcessNode(top, uiItems)
 
@@ -727,4 +728,5 @@ while 1:
         lcdtmp = lcdstart + timedelta(seconds=5)
         if (datetime.now() > lcdtmp):
             lcd.backlight(lcd.LCDOFF)
+			LcdNone()
 
