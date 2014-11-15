@@ -43,7 +43,7 @@
   <folder text="Fruty">
     <widget text="Iniciar Wifi" function="IniciaWifi" />
     <widget text="Detener Wifi" function="DetenWifi" />
-    <service text="Karma" function="Karma" tag="START|STOP" />
+    <service text="Karma" function="Karma" tag="start|stop" />
     </folder>
   <folder text="Camera">
     <widget text="Detect" function="CameraDetect" />
