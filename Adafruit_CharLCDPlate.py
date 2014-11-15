@@ -97,7 +97,7 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
         # Set initial led color.
         c          = ~color
         #                                 BGR 
-    self.porta = (self.porta & 0b00111111) | ((c & 0b011) << 6)
+        self.porta = (self.porta & 0b00111111) | ((c & 0b011) << 6)
         self.portb = (self.portb & 0b11111110) | ((c & 0b100) >> 2)
 
         # Set MCP23017 IOCON register to Bank 0 with sequential operation.
