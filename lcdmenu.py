@@ -640,7 +640,17 @@ class Display:
             self.curTopItem += 1
             self.curSelectedItem += 1
     def left(self):
-        if isinstance(self.curFolder.parent, Folder):
+        if isinstance(self.curFolder.items[self.curSelectedItem], Service):
+            tags=self.curFolder.items[self.curSelectedItem].tag
+            print tags
+            print len(tags)
+            print self.curFolder.items[self.curSelectedItem].selected  
+            if self.curFolder.items[self.curSelectedItem].selected<len(tags)-1:
+              self.curFolder.items[self.curSelectedItem].selected=len(tags)-1
+            else:
+              self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected-1;
+            print self.curFolder.items[self.curSelectedItem].selected  
+		elif isinstance(self.curFolder.parent, Folder):
             # find the current in the parent
             itemno = 0
             index = 0
