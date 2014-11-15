@@ -76,7 +76,6 @@ def Karma(comando):
       lcd.message('Karma Detenido.')
       LcdRed()
     sleep(0.25)
-http://192.168.0.201:8000/modules/whatsapp/includes/module_action.php?service=whatsapp&action=start&page=status
 
 def Whatsapp(comando):
     lcd.clear()
