@@ -603,7 +603,7 @@ class Display:
         global currentLcd
         global lcdstart
         LcdOn();#lcd.backlight(currentLcd)
-        lcd.ledcolor(currentLcd)
+        #lcd.ledcolor(currentLcd)
         lcdstart = datetime.now()
         if DEBUG:
             print('do',command)
@@ -691,7 +691,7 @@ ProcessNode(top, uiItems)
 display = Display(uiItems)
 display.display()
 
-#LcdOn()
+LcdOn()
 
 if DEBUG:
     print('start while')
