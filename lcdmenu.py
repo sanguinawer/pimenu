@@ -99,7 +99,7 @@ def DoQuit():
             break
         if lcd.buttonPressed(lcd.SELECT):
             lcd.clear()
-            lcd.backlight(lcd.OFF)
+            lcd.backlight(lcd.LCDOFF)
             quit()
         sleep(0.25)
 
@@ -111,7 +111,7 @@ def DoShutdown():
             break
         if lcd.buttonPressed(lcd.SELECT):
             lcd.clear()
-            lcd.backlight(lcd.OFF)
+            lcd.backlight(lcd.LCDOFF)
             commands.getoutput("sudo shutdown -h now")
             quit()
         sleep(0.25)
@@ -124,7 +124,7 @@ def DoReboot():
             break
         if lcd.buttonPressed(lcd.SELECT):
             lcd.clear()
-            lcd.backlight(lcd.OFF)
+            lcd.backlight(lcd.LCDOFF)
             commands.getoutput("sudo reboot")
             quit()
         sleep(0.25)
@@ -647,7 +647,7 @@ dom = parse(configfile) # parse an XML file by name
 
 top = dom.documentElement
 
-currentLcd = lcd.OFF
+currentLcd = lcd.LCDOFF
 LcdOff()
 ProcessNode(top, uiItems)
 
