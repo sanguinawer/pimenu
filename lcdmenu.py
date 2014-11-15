@@ -71,9 +71,9 @@ def DetenWifi():
             LcdRed();
             sleep(0.25)
             break;
-def IniciaKarma()
+def IniciaKarma():
     Karma("start")
-def DetenKarma()
+def DetenKarma():
     Krama("stop")
 
 def Karma(comando):
