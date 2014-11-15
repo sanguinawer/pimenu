@@ -475,7 +475,12 @@ class Folder:
         self.text = myName
         self.items = []
         self.parent = myParent
-
+class Service:
+    def __init__(self, myName, myFunction, tag):
+        self.text = myName
+        self.function = myFunction
+        self.tag  = tag
+   
 def HandleSettings(node):
     global lcd
     if node.getAttribute('lcdColor').lower() == 'red':
@@ -491,7 +496,7 @@ def HandleSettings(node):
     elif node.getAttribute('lcdColor').lower() == 'violet':
         LcdViolet()
     elif node.getAttribute('lcdColor').lower() == 'white':
-        LcdOn()
+        LcdWhite()
     if node.getAttribute('lcdBacklight').lower() == 'on':
         LcdOn()
     elif node.getAttribute('lcdBacklight').lower() == 'off':
@@ -553,7 +558,11 @@ class Display:
                 str += '\n'
             if row < len(self.curFolder.items):
                 if row == self.curSelectedItem:
-                    cmd = '-'+self.curFolder.items[row].text
+                    if isinstance(self.curFolder.items[row], Service):
+                        cmd = '-'+self.curFolder.items[row].text +"[" + self.curFolder.items[row].tag + "]"
+                    else:
+                        cmd = '-'+self.curFolder.items[row].text
+
                     if len(cmd) < 16:
                         for row in range(len(cmd), 16):
                             cmd += ' '
@@ -561,6 +570,8 @@ class Display:
                         print('|'+cmd+'|')
                     str += cmd
                 else:
+                    if isinstance(self.curFolder.items[row], Service):
+                        print "service"
                     cmd = ' '+self.curFolder.items[row].text
                     if len(cmd) < 16:
                         for row in range(len(cmd), 16):
