@@ -34,7 +34,7 @@ class Adafruit_CharLCDPlate(Adafruit_I2C):
     LEFT                    = 4
 
     # LED colors
-    OFF                     = 0x00
+    NONE                    = 0x00
     RED                     = 0x01
     GREEN                   = 0x02
     BLUE                    = 0x04
