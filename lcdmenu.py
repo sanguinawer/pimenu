@@ -670,7 +670,10 @@ class Display:
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
         elif isinstance(self.curFolder.items[self.curSelectedItem], Service):
             tags=self.curFolder.items[self.curSelectedItem].tag
-            if self.curFolder.items[self.curSelectedItem].selected>=len(tags):
+            print tags
+            print len(tags)
+            print self.curFolder.items[self.curSelectedItem].selected  
+            if self.curFolder.items[self.curSelectedItem].selected>=len(tags)-1:
               self.curFolder.items[self.curSelectedItem].selected=0
             else:
               self.curFolder.items[self.curSelectedItem].selected=self.curFolder.items[self.curSelectedItem].selected+1;
