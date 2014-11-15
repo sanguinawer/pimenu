@@ -78,19 +78,24 @@ def DetenKarma():
 
 def Karma(comando):
     lcd.clear()
-    lcd.message('Karma' + comando +'?\nPress Sel for Y')
-    while 1:
-        if lcd.buttonPressed(lcd.LEFT):
-            break
-        if lcd.buttonPressed(lcd.SELECT):
-            LcdBlue()
-            lcd.message(comando+ ' ...')
-            sendFrutyModuleCommand("karma",comando)
-            lcd.clear()
-            lcd.message('Karma ' + comando + '.')        
-            sleep(0.25)
-            LcdNone()
-            break;
+    LcdBlue()
+
+    if comando=="start":
+      lcd.message('Iniciando Karma ...')
+    if comando=="stop":
+      lcd.message('Deteniendo Karma ...')
+
+    sendFrutyModuleCommand("karma",comando)
+    lcd.clear()
+  
+    if comando=="start":
+      lcd.message('Karma Iniciado.')
+      LcdGreen()
+    if comando=="stop":
+      lcd.message('Karma Detenido.')
+      LcdRed()
+    sleep(0.25)
+    break;
 
 def DoQuit():
     lcd.clear()
@@ -696,8 +701,7 @@ class Display:
             if DEBUG:
                 print('eval', self.curFolder.items[self.curSelectedItem].function)
             param=self.curFolder.items[self.curSelectedItem].tag[self.curFolder.items[self.curSelectedItem].selected]
-            #eval(self.curFolder.items[self.curSelectedItem].function+'('+  param  +')')
-            print  self.curFolder.items[self.curSelectedItem].function+'("'+  param  +'")'
+            eval(self.curFolder.items[self.curSelectedItem].function+'("'+  param  +'")')
 
 # now start things up
 currentLcd = lcd.NONE
