@@ -642,9 +642,6 @@ class Display:
     def left(self):
         if isinstance(self.curFolder.items[self.curSelectedItem], Service):
             tags=self.curFolder.items[self.curSelectedItem].tag
-            print tags
-            print len(tags)
-            print self.curFolder.items[self.curSelectedItem].selected  
             if self.curFolder.items[self.curSelectedItem].selected<=0:
               self.curFolder.items[self.curSelectedItem].selected=len(tags)-1
             else:
@@ -680,9 +677,6 @@ class Display:
             eval(self.curFolder.items[self.curSelectedItem].function+'()')
         elif isinstance(self.curFolder.items[self.curSelectedItem], Service):
             tags=self.curFolder.items[self.curSelectedItem].tag
-            print tags
-            print len(tags)
-            print self.curFolder.items[self.curSelectedItem].selected  
             if self.curFolder.items[self.curSelectedItem].selected>=len(tags)-1:
               self.curFolder.items[self.curSelectedItem].selected=0
             else:
