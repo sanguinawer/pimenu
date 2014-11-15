@@ -691,7 +691,7 @@ ProcessNode(top, uiItems)
 display = Display(uiItems)
 display.display()
 
-LcdOn()
+#LcdOn()
 
 if DEBUG:
     print('start while')
