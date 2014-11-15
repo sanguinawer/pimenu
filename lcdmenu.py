@@ -131,37 +131,49 @@ def DoReboot():
         sleep(0.25)
 
 def LcdOff():
-    global currentLcd
-    currentLcd = lcd.LCDOFF
-    lcd.backlight(currentLcd)
+    lcd.backlight(lcd.LCDOFF)
 
 def LcdOn():
-    global currentLcd
-    currentLcd = lcd.LCDON
-    lcd.backlight(currentLcd)
+    lcd.backlight(lcd.LCDON)
 
 def LcdNone():
-    lcd.ledcolor(lcd.NONE)
+    global currentLcd
+    currentLcd = lcd.NONE
+    lcd.ledcolor(currentLcd)
 def LcdRed():
-    lcd.ledcolor(lcd.RED)
+    global currentLcd
+    currentLcd = lcd.RED
+    lcd.ledcolor(currentLcd)
 
 def LcdWhite():
-    lcd.ledcolor(lcd.WHITE)    
+    global currentLcd
+    currentLcd = lcd.WHITE
+    lcd.ledcolor(currentLcd)    
 
 def LcdGreen():
-    lcd.ledcolor(lcd.GREEN)
+    global currentLcd
+    currentLcd = lcd.GREEN
+    lcd.ledcolor(currentLcd)
 
 def LcdBlue():
-    lcd.ledcolor(lcd.BLUE)
+    global currentLcd
+    currentLcd = lcd.BLUE
+    lcd.ledcolor(currentLcd)
 
 def LcdYellow():
-    lcd.ledcolor(lcd.YELLOW)
+    global currentLcd
+    currentLcd = lcd.YELLOW
+    lcd.ledcolor(currentLcd)
 
 def LcdTeal():
-    lcd.ledcolor(lcd.TEAL)
+    global currentLcd
+    currentLcd = lcd.TEAL
+    lcd.ledcolor(currentLcd)
 
 def LcdViolet():
-    lcd.ledcolor(lcd.VIOLET)
+    global currentLcd
+    currentLcd = lcd.VIOLET
+    lcd.ledcolor(currentLcd)
 
 def ShowDateTime():
     if DEBUG:
@@ -591,6 +603,7 @@ class Display:
         global currentLcd
         global lcdstart
         LcdOn();#lcd.backlight(currentLcd)
+        lcd.ledcolor(currentLcd)
         lcdstart = datetime.now()
         if DEBUG:
             print('do',command)
@@ -670,8 +683,8 @@ dom = parse(configfile) # parse an XML file by name
 
 top = dom.documentElement
 
-currentLcd = lcd.LCDOFF
-LcdOff()
+#currentLcd = lcd.LCDOFF
+LcdOn()
 ProcessNode(top, uiItems)
 
 display = Display(uiItems)
